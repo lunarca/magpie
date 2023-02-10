@@ -1,0 +1,12 @@
+{
+  "name": "magpie-station",
+  "outputfilename": "magpie-station",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "Alex DeFreese",
+    "email": "alexdefreese@gmail.com"
+  }
+}
