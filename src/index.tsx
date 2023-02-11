@@ -16,7 +16,7 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 
 render(() => (
   <FirebaseProvider config={firebaseConfig}>
-    <div class="bg-stone-900 absolute h-screen w-screen ">
+    <div class="bg-stone-900 absolute h-screen w-screen scanlines">
       <App />
 
     </div>
