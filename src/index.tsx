@@ -16,6 +16,9 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 
 render(() => (
   <FirebaseProvider config={firebaseConfig}>
-    <App />
+    <div class="bg-stone-900 absolute h-screen w-screen ">
+      <App />
+
+    </div>
   </FirebaseProvider>
 ), root!);
