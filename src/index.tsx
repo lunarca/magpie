@@ -3,6 +3,8 @@ import { render } from 'solid-js/web';
 
 import './index.css';
 import App from './App';
+import { FirebaseProvider } from 'solid-firebase';
+import { firebaseConfig } from './libs/firebase';
 
 const root = document.getElementById('root');
 
@@ -12,4 +14,8 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   );
 }
 
-render(() => <App />, root!);
+render(() => (
+  <FirebaseProvider config={firebaseConfig}>
+    <App />
+  </FirebaseProvider>
+), root!);
