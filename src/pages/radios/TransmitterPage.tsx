@@ -4,7 +4,7 @@ import MessageInput from '../../components/transmitter/MessageInput';
 type Props = {
 
 }
-const Transmitter: Component<Props> = (props) => {
+const TransmitterPage: Component<Props> = (props) => {
 
   const [message, setMessage] = createSignal("")
 
@@ -19,4 +19,4 @@ const Transmitter: Component<Props> = (props) => {
   )
 }
 
-export default Transmitter
+export default TransmitterPage

@@ -7,7 +7,7 @@ const App: Component = () => (
   <>
     <Routes>
       <Route path="/" component={Index} />
-      <Route path="/tx" component={lazy(() => import('./pages/radios/Transmitter'))} />
+      <Route path="/tx" component={lazy(() => import('./pages/radios/TransmitterPage'))} />
     </Routes>
   </>
 );
