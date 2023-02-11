@@ -9,7 +9,7 @@ const Index: Component<Props> = (props) => {
   return (
     <div class="grid justify-center content-center h-screen">
 
-      <div class="w-96 h-52">
+      <div class="w-96">
         <RxTxSelectorPanel />
       </div>
     </div>

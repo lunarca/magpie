@@ -16,9 +16,11 @@ const RxTxSelectorPanel: Component<Props> = (props) => {
 
   return (
     <Panel title="Choose Radio Type">
-      <div class="flex flex-row">
-        <Button color="secondary" onClick={selectRadio("rx")}>Receiver (RX)</Button>
-        <Button onClick={selectRadio("tx")}>Transmitter (TX)</Button>
+      <div class="grid justify-center content-center w-full h-full">
+        <div>
+          <Button color="secondary" onClick={selectRadio("rx")}>Receiver (RX)</Button>
+          <Button onClick={selectRadio("tx")}>Transmitter (TX)</Button>
+        </div>
       </div>
     </Panel>
   )
