@@ -1,21 +1,17 @@
 import type { Component } from 'solid-js';
+import { Routes, Route } from "@solidjs/router";
 
 import Panel from './components/Panel';
 import RxTxSelectorPanel from './components/RxTxSelectorPanel';
+import Index from './pages';
 
-const App: Component = () => {
-  return (
-    <>
-      <div class="w-80 h-50 grid">
-        <Panel title="Attention!">
-          <p>Great holes secretly are digged where earth’s pores ought to suffice, and things have learnt to walk that ought to crawl.</p>
-        </Panel>
+const App: Component = () => (
+  <>
+    <Routes>
+      <Route path="/" component={Index} />
 
-        <RxTxSelectorPanel />
-
-      </div>
-    </>
-  );
-};
+    </Routes>
+  </>
+);
 
 export default App;

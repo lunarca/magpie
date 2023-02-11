@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import { FirebaseProvider } from 'solid-firebase';
 import { firebaseConfig } from './libs/firebase';
+import { Router } from '@solidjs/router';
 
 const root = document.getElementById('root');
 
@@ -16,9 +17,13 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 
 render(() => (
   <FirebaseProvider config={firebaseConfig}>
-    <div class="bg-stone-900 absolute h-screen w-screen scanlines">
-      <App />
+    <Router>
 
-    </div>
+      <div class="bg-stone-900 absolute h-screen w-screen scanlines">
+        <App />
+
+      </div>
+    </Router>
+
   </FirebaseProvider>
 ), root!);

@@ -10,7 +10,10 @@ const Button: Component<Props> = (props) => {
   const colorClass = props.color === "secondary" ? "bg-cyan-600" : "bg-orange-500"
 
   return (
-    <button class={`${colorClass} m-2 p-2 text-slate-900 text-center font-bold`}>{c()}</button>
+    <button 
+      class={`${colorClass} m-2 p-2 text-slate-900 text-center font-bold shadow-sm`}
+      onClick={props.onClick}
+    >{c()}</button>
   )
 }
 
