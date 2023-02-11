@@ -11,7 +11,9 @@ const MessageInput: Component<Props> = (props) => {
       <Panel title="Message Input">
         <textarea 
           onChange={(event) => {props.setMessage(event.currentTarget.value)}} 
-          class="bg-stone-800 h-full w-full resize-none outline-none overflow-auto" />
+          class="bg-stone-800 h-full w-full resize-none outline-none overflow-auto" 
+          placeholder="Enter message here..."
+          />
       </Panel>
     </div>
 
