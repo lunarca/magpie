@@ -1,3 +1,4 @@
+import { useNavigate } from '@solidjs/router';
 import { Component } from 'solid-js';
 import Panel from './Panel';
 import Button from './util/Button';
@@ -7,8 +8,10 @@ type Props = {
 }
 const RxTxSelectorPanel: Component<Props> = (props) => {
 
-  const selectRadio = (radio: string) => () => {
-    console.log(`Selected ${radio}`)
+  const navigate = useNavigate()
+
+  const selectRadio = (radio: "rx" | "tx") => () => {
+    navigate(`/${radio}`)
   }
 
   return (
