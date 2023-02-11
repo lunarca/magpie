@@ -10,11 +10,13 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "tailwindcss": "^3.2.6",
     "typescript": "^4.9.5",
     "vite": "^4.1.1",
     "vite-plugin-solid": "^2.5.0"
   },
   "dependencies": {
+    "@solidjs/router": "^0.7.0",
     "firebase": "^9.17.1",
     "solid-firebase": "^0.1.7",
     "solid-js": "^1.6.10"
