@@ -1,9 +1,7 @@
-import type { Component } from 'solid-js';
+import { Component, lazy } from 'solid-js';
 import { Routes, Route } from "@solidjs/router";
 
-import Panel from './components/Panel';
-import RxTxSelectorPanel from './components/RxTxSelectorPanel';
-import Index from './pages';
+const Index = lazy(() => import('./pages/Index'));
 
 const App: Component = () => (
   <>
