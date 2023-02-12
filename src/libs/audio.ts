@@ -1,6 +1,6 @@
 import * as Tone from 'tone'
 
-export const runSpeech = (sampler: Tone.Sampler | null, numbers: string[], language: string) => {
+export const runSpeech = (sampler: Tone.Sampler | null, numbers: string[], language: string, encoding: string) => {
   if (sampler) {
 
     Tone.start()
@@ -13,7 +13,7 @@ export const runSpeech = (sampler: Tone.Sampler | null, numbers: string[], langu
 
     Tone.Transport.schedule(() => {
       console.log("Slowing BPM")
-      Tone.Transport.bpm.value = 80
+      Tone.Transport.bpm.value = encoding === "base16" ? 110 : 80
     }, "4:3")
 
     const notes = generateNotes(numbers)
