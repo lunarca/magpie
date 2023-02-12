@@ -1,6 +1,6 @@
 import { Component, createEffect, createSignal } from 'solid-js';
 import Panel from '../Panel';
-import BoxRadioButton from '../util/BoxRadioButton';
+import TerminalCheckboxInput from '../util/TerminalCheckboxInput';
 import SliderInput from '../util/SliderInput';
 
 
@@ -38,13 +38,13 @@ const MessageOptionsPanel: Component<Props> = (props) => {
           <fieldset class="flex flex-col">
             <legend class="font-bold text-lg">Transmission Language</legend>
 
-            <BoxRadioButton fieldName="language" value="english" 
+            <TerminalCheckboxInput fieldName="language" value="english" 
               label="English" handleChange={setLanguage} selected={langauge() === "english"} />
 
-            <BoxRadioButton fieldName="language" value="german"
+            <TerminalCheckboxInput fieldName="language" value="german"
               label="Deutsch" handleChange={setLanguage} selected={langauge() === "german"} />
 
-            <BoxRadioButton fieldName="language" value="japanese"
+            <TerminalCheckboxInput fieldName="language" value="japanese"
               label="日本語" handleChange={setLanguage} selected={langauge() === "japanese"} />
           </fieldset>
         </div>
