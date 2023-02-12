@@ -25,6 +25,8 @@ const TransmitterPage: Component<Props> = (props) => {
   })
 
   return (
+    <div class="flex items-center justify-center h-screen">
+
     <div class="flex flex-row">
       <div class="flex flex-col">
         <MessageInput setMessage={setMessage}/>
@@ -37,6 +39,7 @@ const TransmitterPage: Component<Props> = (props) => {
       </div>
       
 
+    </div>
     </div>
 
   )
