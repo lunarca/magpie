@@ -1,5 +1,7 @@
 import { Component } from 'solid-js';
 
+import logo from "../assets/icons/magpie-icon.png"
+
 type Props = {
 
 }
@@ -11,7 +13,7 @@ const Logo: Component<Props> = (props) => {
         <div class="text-orange-500">MAG</div>
         <div class="text-cyan-400">PIE</div>
       </span>
-      <img class="h-fit" src="/src/assets/icons/magpie-icon.png"></img>
+      <img class="h-fit" src={logo}></img>
     </div>
   )
 }
