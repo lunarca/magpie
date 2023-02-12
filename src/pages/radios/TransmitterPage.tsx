@@ -15,7 +15,7 @@ type Props = {
 const TransmitterPage: Component<Props> = (props) => {
 
   const [message, setMessage] = createSignal("")
-  const [encoding, setEncoding] = createSignal("base64")
+  const [encoding, setEncoding] = createSignal("base16")
   const [messageOptions, setMessageOptions] = createSignal<MessageOptions>({
     repeats: 2,
     language: "de",

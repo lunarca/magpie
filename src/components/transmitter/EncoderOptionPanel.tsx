@@ -17,8 +17,8 @@ const EncoderOptionPanel: Component<Props> = (props) => {
         <fieldset class="flex flex-col">
           <legend class="font-bold text-lg">Select encoding type</legend>
           
-          <TerminalCheckboxRadio fieldName="encoding" value="base64" label="Base 64" handleChange={props.setEncoding} selected={"base64" === props.encoding} />
           <TerminalCheckboxRadio fieldName="encoding" value="base16" label="Base 16" handleChange={props.setEncoding} selected={"base16" === props.encoding} />
+          <TerminalCheckboxRadio fieldName="encoding" value="base64" label="Base 64" handleChange={props.setEncoding} selected={"base64" === props.encoding} />
           
         </fieldset>
       </Panel>
