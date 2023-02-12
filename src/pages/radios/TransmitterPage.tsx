@@ -1,6 +1,7 @@
-import { Component, createEffect, createSignal } from 'solid-js';
+import { Component, createEffect, createSignal, DEV, Show } from 'solid-js';
 import EncoderOptionPanel from '../../components/transmitter/EncoderOptionPanel';
 import MessageInput from '../../components/transmitter/MessageInput';
+import MessageOptionsPanel from '../../components/transmitter/MessageOptionsPanel';
 
 type Props = {
 
@@ -18,10 +19,6 @@ const TransmitterPage: Component<Props> = (props) => {
     <div class="grid">
       <MessageInput setMessage={setMessage}/>
       <EncoderOptionPanel setEncoding={setEncoding} encoding={encoding()} />
-      <div class="text-black bg-white">
-        Message: {message}
-        Encoding: {encoding}
-      </div>
 
     </div>
 
