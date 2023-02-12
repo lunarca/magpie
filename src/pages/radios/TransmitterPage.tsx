@@ -3,6 +3,7 @@ import EncoderOptionPanel from '../../components/transmitter/EncoderOptionPanel'
 import MessageInput from '../../components/transmitter/MessageInput';
 import MessageOptionsPanel, { MessageOptions } from '../../components/transmitter/MessageOptionsPanel';
 import PasswordPanel from '../../components/transmitter/PasswordPanel';
+import { messageToNumbers, numbersToMessage } from '../../libs/messageUtils';
 
 type Props = {
 
@@ -21,7 +22,13 @@ const TransmitterPage: Component<Props> = (props) => {
   const [usePassword, setUsePassword] = createSignal(false)
 
   createEffect(() => {
-    console.log(message())
+    messageToNumbers(message(), encoding()).then(numbers => {
+      console.log(numbers)
+
+      numbersToMessage(numbers, encoding()).then(message => {
+        console.log(message)
+      })
+    })
   })
 
   return (
