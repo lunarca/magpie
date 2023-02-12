@@ -2,6 +2,7 @@ import { Component, createEffect, createSignal, DEV, Show } from 'solid-js';
 import EncoderOptionPanel from '../../components/transmitter/EncoderOptionPanel';
 import MessageInput from '../../components/transmitter/MessageInput';
 import MessageOptionsPanel, { MessageOptions } from '../../components/transmitter/MessageOptionsPanel';
+import PasswordPanel from '../../components/transmitter/PasswordPanel';
 
 type Props = {
 
@@ -16,6 +17,9 @@ const TransmitterPage: Component<Props> = (props) => {
     numbersInSegment: 5
   })
 
+  const [password, setPassword] = createSignal("")
+  const [usePassword, setUsePassword] = createSignal(false)
+
   createEffect(() => {
     console.log(message())
   })
@@ -24,6 +28,8 @@ const TransmitterPage: Component<Props> = (props) => {
     <div class="flex flex-row">
       <div class="flex flex-col">
         <MessageInput setMessage={setMessage}/>
+        <PasswordPanel password={password()} updatePassword={setPassword}
+          usePassword={usePassword()} updateUsePassword={setUsePassword}/>
       </div>
       <div class="flex flex-col">
         <EncoderOptionPanel setEncoding={setEncoding} encoding={encoding()} />
