@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm install -g pnpm firebase-tools
+      - run: npm install -g pnpm firebase-tools vite
       - run: pnpm install
-      - run: pnpm run build
+      - run: vite build
       - run: firebase experiments:enable webframeworks 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
