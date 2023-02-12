@@ -12,7 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm install -g pnpm firebase-tools
-      - run: pnpm install && pnpm run build
+      - run: pnpm install
+      - run: pnpm run build
       - run: firebase experiments:enable webframeworks 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
