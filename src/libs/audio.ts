@@ -1,6 +1,6 @@
 import * as Tone from 'tone'
 
-export const runSpeech = (sampler: Tone.Sampler | null, numbers: string[], encoding: string) => {
+export const playSignal = (sampler: Tone.Sampler | null, numbers: string[], encoding: string) => {
   if (sampler) {
 
     Tone.start()
@@ -21,8 +21,8 @@ export const runSpeech = (sampler: Tone.Sampler | null, numbers: string[], encod
     const lastEvent = notes[notes.length - 1]
     const lastEventTime = parseInt(lastEvent.time.split(":")[0])
     
-    const mockingbirdNode = playMockingbirdSignal().start(0)
-    const numbersNode = speakNumbers(sampler, notes)?.start(0)
+    const mockingbirdNode = scheduleMockingbirdSignal().start(0)
+    const numbersNode = scheduleNumbers(sampler, notes)?.start(0)
     
     Tone.Transport.schedule(() => {
       console.log("Stopping")
@@ -57,7 +57,7 @@ const mockingbirdNotes = [
   {"time": "2:2", "note": "A5", "duration": "4n"},
 ]
 
-export const speakNumbers = (sampler: Tone.Sampler | null, notes: any[]) => {
+export const scheduleNumbers = (sampler: Tone.Sampler | null, notes: any[]) => {
   if (sampler) {
     return new Tone.Part((time, value) => {
       sampler.triggerAttackRelease(value.note, value.duration, time)
@@ -65,7 +65,7 @@ export const speakNumbers = (sampler: Tone.Sampler | null, notes: any[]) => {
   }
 }
 
-export const playMockingbirdSignal = () => {
+export const scheduleMockingbirdSignal = () => {
   return new Tone.Part((time, value) => {
     MockingbirdSynth.triggerAttackRelease(value.note, value.duration, time)
   }, mockingbirdNotes)

@@ -5,7 +5,7 @@ import MessageInput from '../../components/transmitter/MessageInput';
 import MessageOptionsPanel, { MessageOptions } from '../../components/transmitter/MessageOptionsPanel';
 import PasswordPanel from '../../components/transmitter/PasswordPanel';
 import TransmitterPanel from '../../components/transmitter/TransmitterPanel';
-import { noteToSignalMap, playMockingbirdSignal, runSpeech, speakNumbers } from '../../libs/audio';
+import { noteToSignalMap, scheduleMockingbirdSignal, playSignal, scheduleNumbers } from '../../libs/audio';
 import { messageToNumbers, numbersToMessage } from '../../libs/messageUtils';
 import { getDeSampler } from '../../libs/samplers/deSampler';
 
@@ -40,7 +40,7 @@ const TransmitterPage: Component<Props> = (props) => {
   const testSignal = () => {
     messageToNumbers(message(), encoding()).then(numbers => {
       console.log(numbers)
-      runSpeech(deSampler(), numbers, encoding())
+      playSignal(deSampler(), numbers, encoding())
     })
   }
 
