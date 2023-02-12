@@ -22,15 +22,11 @@ const TransmitterPage: Component<Props> = (props) => {
   const [password, setPassword] = createSignal("")
   const [usePassword, setUsePassword] = createSignal(false)
 
-  createEffect(() => {
+  const testSignal = () => {
     messageToNumbers(message(), encoding()).then(numbers => {
       console.log(numbers)
-
-      numbersToMessage(numbers, encoding()).then(message => {
-        console.log(message)
-      })
     })
-  })
+  }
 
   return (
     <div class="flex items-center justify-center h-screen">
@@ -47,7 +43,8 @@ const TransmitterPage: Component<Props> = (props) => {
       </div>
 
       <div class="flex flex-col">
-        <TransmitterPanel />
+        {/* TODO */}
+        <TransmitterPanel testSignal={testSignal} transmitSignal={() => {}} />
       </div>
       
 
