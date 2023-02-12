@@ -1,5 +1,41 @@
 import * as Tone from 'tone'
 
+export const runSpeech = (sampler: Tone.Sampler | null, numbers: string[], language: string) => {
+  if (sampler) {
+
+    Tone.start()
+
+    Tone.Transport.schedule(() => {
+      console.log("Restarting BPM")
+      Tone.Transport.bpm.value = 130
+  
+    }, "0")
+
+    Tone.Transport.schedule(() => {
+      console.log("Slowing BPM")
+      Tone.Transport.bpm.value = 80
+    }, "4:3")
+
+    const notes = generateNotes(numbers)
+
+    const lastEvent = notes[notes.length - 1]
+    const lastEventTime = parseInt(lastEvent.time.split(":")[0])
+    
+    const mockingbirdNode = playMockingbirdSignal().start(0)
+    const numbersNode = speakNumbers(sampler, notes, language)?.start(0)
+    
+    Tone.Transport.schedule(() => {
+      console.log("Stopping")
+      Tone.Transport.stop()
+      mockingbirdNode.dispose()
+      numbersNode?.dispose()
+    }, `${lastEventTime + 1}:0`)
+
+    
+    Tone.Transport.start()
+  }
+}
+
 const MockingbirdSynth = new Tone.MonoSynth({
   oscillator: {
     type: 'sine'
@@ -21,33 +57,18 @@ const mockingbirdNotes = [
   {"time": "2:2", "note": "A5", "duration": "4n"},
 ]
 
-export const speakNumbers = (sampler: Tone.Sampler | null, numbers: string[], language: string) => {
+export const speakNumbers = (sampler: Tone.Sampler | null, notes: any[], language: string) => {
   if (sampler) {
-
-    const notes = generateNotes(numbers)
-
-    Tone.Transport.schedule(() => {
-      console.log("Slowing BPM")
-      Tone.Transport.bpm.value = 80
-    }, "5:0")
-
-    const part = new Tone.Part((time, value) => {
+    return new Tone.Part((time, value) => {
       sampler.triggerAttackRelease(value.note, value.duration, time)
-    }, notes).start(Tone.now())
-    Tone.Transport.start()
+    }, notes)
   }
 }
 
 export const playMockingbirdSignal = () => {
-  Tone.start()
-
-  Tone.Transport.bpm.value = 130
-
-  const part = new Tone.Part((time, value) => {
+  return new Tone.Part((time, value) => {
     MockingbirdSynth.triggerAttackRelease(value.note, value.duration, time)
-  }, mockingbirdNotes).start(Tone.now())
-
-  Tone.Transport.start()
+  }, mockingbirdNotes)
 }
 
 const generateNotes = (numbers: string[]) => {
