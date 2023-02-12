@@ -1,10 +1,13 @@
 import { Component, createEffect, createSignal, DEV, Show } from 'solid-js';
+import * as Tone from 'tone';
 import EncoderOptionPanel from '../../components/transmitter/EncoderOptionPanel';
 import MessageInput from '../../components/transmitter/MessageInput';
 import MessageOptionsPanel, { MessageOptions } from '../../components/transmitter/MessageOptionsPanel';
 import PasswordPanel from '../../components/transmitter/PasswordPanel';
 import TransmitterPanel from '../../components/transmitter/TransmitterPanel';
+import { noteToSignalMap, playMockingbirdSignal, speakNumbers } from '../../libs/audio';
 import { messageToNumbers, numbersToMessage } from '../../libs/messageUtils';
+import { getDeSampler } from '../../libs/samplers/deSampler';
 
 type Props = {
 
@@ -22,9 +25,24 @@ const TransmitterPage: Component<Props> = (props) => {
   const [password, setPassword] = createSignal("")
   const [usePassword, setUsePassword] = createSignal(false)
 
+  const [deSampler, setDeSampler] = createSignal<Tone.Sampler|null>(null);
+  const [samplesLoaded, setSamplesLoaded] = createSignal(false);
+
+  createEffect(() => {
+    setDeSampler(getDeSampler())
+
+    Tone.loaded().then(() => {
+      console.log("Samples loaded")
+      setSamplesLoaded(true)
+    })
+  })
+
   const testSignal = () => {
+    Tone.start()
+    playMockingbirdSignal()
     messageToNumbers(message(), encoding()).then(numbers => {
       console.log(numbers)
+      speakNumbers(deSampler(), numbers, "de")
     })
   }
 
