@@ -4,6 +4,9 @@ import BoxRadioButton from '../util/BoxRadioButton';
 
 type Props = {
 
+  setEncoding: (encoding: string) => void
+  encoding: string
+
 }
 
 const EncoderOptionPanel: Component<Props> = (props) => {
@@ -14,9 +17,9 @@ const EncoderOptionPanel: Component<Props> = (props) => {
         <fieldset class="flex flex-col">
           <legend class="font-bold text-lg">Select encoding type</legend>
           
-          <BoxRadioButton fieldName="encoding" value="base64" label="Base 64" />
-          <BoxRadioButton fieldName="encoding" value="base32" label="Base 32" />
-          <BoxRadioButton fieldName="encoding" value="base16" label="Base 16" />
+          <BoxRadioButton fieldName="encoding" value="base64" label="Base 64" handleChange={props.setEncoding} selected={"base64" === props.encoding} />
+          <BoxRadioButton fieldName="encoding" value="base32" label="Base 32" handleChange={props.setEncoding} selected={"base32" === props.encoding} />
+          <BoxRadioButton fieldName="encoding" value="base16" label="Base 16" handleChange={props.setEncoding} selected={"base16" === props.encoding} />
           
         </fieldset>
       </Panel>

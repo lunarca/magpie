@@ -8,6 +8,7 @@ type Props = {
 const TransmitterPage: Component<Props> = (props) => {
 
   const [message, setMessage] = createSignal("")
+  const [encoding, setEncoding] = createSignal("base64")
 
   createEffect(() => {
     console.log(message())
@@ -16,8 +17,14 @@ const TransmitterPage: Component<Props> = (props) => {
   return (
     <div class="grid">
       <MessageInput setMessage={setMessage}/>
-      <EncoderOptionPanel />
+      <EncoderOptionPanel setEncoding={setEncoding} encoding={encoding()} />
+      <div class="text-black bg-white">
+        Message: {message}
+        Encoding: {encoding}
+      </div>
+
     </div>
+
   )
 }
 
