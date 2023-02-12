@@ -14,7 +14,7 @@ const TransmitterPage: Component<Props> = (props) => {
   const [encoding, setEncoding] = createSignal("base64")
   const [messageOptions, setMessageOptions] = createSignal<MessageOptions>({
     repeats: 2,
-    language: "german",
+    language: "de",
     numbersInSegment: 5
   })
 
