@@ -1,5 +1,5 @@
 import { Component } from 'solid-js';
-import styles from './BoxRadioButton.module.css';
+import styles from './TerminalCheckboxRadio.module.css'
 
 type Props = {
   fieldName: string,
