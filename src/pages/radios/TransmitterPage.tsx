@@ -40,7 +40,7 @@ const TransmitterPage: Component<Props> = (props) => {
   const testSignal = () => {
     messageToNumbers(message(), encoding()).then(numbers => {
       console.log(numbers)
-      runSpeech(deSampler(), numbers, "de", encoding())
+      runSpeech(deSampler(), numbers, encoding())
     })
   }
 
