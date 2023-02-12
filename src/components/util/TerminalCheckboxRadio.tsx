@@ -9,7 +9,7 @@ type Props = {
   handleChange: (value: string) => void
 }
 
-const TerminalCheckboxInput: Component<Props> = (props) => {
+const TerminalCheckboxRadio: Component<Props> = (props) => {
   return (
     <div>
       <input 
@@ -24,4 +24,4 @@ const TerminalCheckboxInput: Component<Props> = (props) => {
   )
 }
 
-export default TerminalCheckboxInput
+export default TerminalCheckboxRadio
