@@ -7,7 +7,7 @@ type Props = {
 
 const MessageInput: Component<Props> = (props) => {
   return (
-    <div class="w-96 h-64 p-2">
+    <div class="w-96 h-80 m-2">
       <Panel title="Message Input">
         <textarea 
           onChange={(event) => {props.setMessage(event.currentTarget.value)}} 

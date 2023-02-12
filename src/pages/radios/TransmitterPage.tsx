@@ -21,10 +21,15 @@ const TransmitterPage: Component<Props> = (props) => {
   })
 
   return (
-    <div class="grid">
-      <MessageInput setMessage={setMessage}/>
-      <EncoderOptionPanel setEncoding={setEncoding} encoding={encoding()} />
-      <MessageOptionsPanel updateMessageOptions={setMessageOptions} messageOptions={messageOptions()}/>
+    <div class="flex flex-row">
+      <div class="flex flex-col">
+        <MessageInput setMessage={setMessage}/>
+      </div>
+      <div class="flex flex-col">
+        <EncoderOptionPanel setEncoding={setEncoding} encoding={encoding()} />
+        <MessageOptionsPanel updateMessageOptions={setMessageOptions} messageOptions={messageOptions()}/>
+      </div>
+      
 
     </div>
 

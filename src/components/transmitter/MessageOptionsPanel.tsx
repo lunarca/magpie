@@ -26,7 +26,7 @@ const MessageOptionsPanel: Component<Props> = (props) => {
   })
 
   return (
-    <div class="w-72 m-2">
+    <div class="m-2 w-80">
       <Panel title="Message Options">
         <div class="flex flex-col">
           <SliderInput legend="Numbers in each segment" min={1} max={10}
