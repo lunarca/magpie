@@ -5,7 +5,7 @@ type Props = {
 
 }
 
-const Index: Component<Props> = (props) => {
+const IndexPage: Component<Props> = (props) => {
   return (
     <div class="grid justify-center content-center h-screen">
 
@@ -17,4 +17,4 @@ const Index: Component<Props> = (props) => {
   )
 }
 
-export default Index
+export default IndexPage

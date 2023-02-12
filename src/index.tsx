@@ -1,7 +1,7 @@
 /* @refresh reload */
 import { render } from 'solid-js/web';
 
-import './Index.css';
+import './index.css';
 import App from './App';
 import { FirebaseProvider } from 'solid-firebase';
 import { firebaseConfig } from './libs/firebase';
