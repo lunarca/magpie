@@ -28,8 +28,30 @@ export const messageToNumbers = async (message: string, encoding: string, passwo
 
 export const numbersToMessage = async (numbers: string[], encoding: string, password?: string) => {
   if (password) {
-    // TODO
+    const colonIndex = numbers.indexOf(":")
+    const ivEncoded = numbers.slice(0, colonIndex)
+    const ciphertextEncoded = numbers.slice(colonIndex + 1)
 
+    switch (encoding) {
+      case "base64":
+        return await decryptMessage(
+          Buffer.from(numbersToB64String(ivEncoded), "base64"),
+          Buffer.from(numbersToB64String(ciphertextEncoded), "base64"),
+          password
+        )
+      case "base16":
+        return await decryptMessage(
+          Buffer.from(numbersToHexString(ivEncoded), "hex"),
+          Buffer.from(numbersToHexString(ciphertextEncoded), "hex"),
+          password
+        )
+      default:
+        return await decryptMessage(
+          Buffer.from(numbersToHexString(ivEncoded), "hex"),
+          Buffer.from(numbersToHexString(ciphertextEncoded), "hex"),
+          password
+        )
+    }
   } else {
     switch (encoding) {
       case "base64":
