@@ -17,7 +17,10 @@ const PasswordPanel: Component<Props> = (props) => {
       <Panel title="Password Options">
         <div class="flex flex-col">
           <TerminalCheckboxInput label="Use Password?" checked={props.usePassword} handleChange={props.updateUsePassword}/>
-          {"" + props.usePassword}
+          <input disabled={!props.usePassword} placeholder="Password" 
+            class="bg-stone-700 border-none py-1 px-2 my-2 outline-none disabled:bg-stone-800 disabled:placeholder:text-stone-600 disabled:border-stone-600" 
+            value={props.password} 
+            onInput={(event) => {props.updatePassword(event.currentTarget.value)}} />
         </div>
       </Panel>
     </div>
