@@ -3,6 +3,7 @@ import EncoderOptionPanel from '../../components/transmitter/EncoderOptionPanel'
 import MessageInput from '../../components/transmitter/MessageInput';
 import MessageOptionsPanel, { MessageOptions } from '../../components/transmitter/MessageOptionsPanel';
 import PasswordPanel from '../../components/transmitter/PasswordPanel';
+import TransmitterPanel from '../../components/transmitter/TransmitterPanel';
 import { messageToNumbers, numbersToMessage } from '../../libs/messageUtils';
 
 type Props = {
@@ -43,6 +44,10 @@ const TransmitterPage: Component<Props> = (props) => {
       <div class="flex flex-col">
         <EncoderOptionPanel setEncoding={setEncoding} encoding={encoding()} />
         <MessageOptionsPanel updateMessageOptions={setMessageOptions} messageOptions={messageOptions()}/>
+      </div>
+
+      <div class="flex flex-col">
+        <TransmitterPanel />
       </div>
       
 
