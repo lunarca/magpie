@@ -12,6 +12,8 @@ const TransmitterPanel: Component<Props> = (props) => {
     <div class="h-[464px] w-96 m-2">
       <Panel title="Transmitter">
         <Button color="primary" onClick={props.testSignal}>Test Signal</Button>
+
+        <Button color="RED" onClick={props.transmitSignal}>Transmit Signal</Button>
       </Panel>
     </div>
   )
