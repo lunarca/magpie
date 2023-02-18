@@ -4,6 +4,7 @@ import Button from '../util/Button';
 
 type Props = {
   testSignal: () => void,
+  stopTest: () => void,
   transmitSignal: () => void,
 }
 
@@ -14,6 +15,8 @@ const TransmitterPanel: Component<Props> = (props) => {
         <Button color="primary" onClick={props.testSignal}>Test Signal</Button>
 
         <Button color="RED" onClick={props.transmitSignal}>Transmit Signal</Button>
+
+        <Button color="secondary" onClick={props.stopTest}>Stop Audio</Button>
       </Panel>
     </div>
   )

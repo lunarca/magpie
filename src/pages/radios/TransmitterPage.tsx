@@ -44,6 +44,9 @@ const TransmitterPage: Component<Props> = (props) => {
       playSignal(deSampler(), numbers, encoding())
     })
   }
+  const stopTest = () => {
+    Tone.Transport.stop()
+  }
 
   return (
     <div class="flex justify-center items-center h-full">
@@ -68,7 +71,7 @@ const TransmitterPage: Component<Props> = (props) => {
         </div>
 
         <div class={`${styles.areaTx} h-full`}>
-          <TransmitterPanel testSignal={testSignal} transmitSignal={() => {}} />
+          <TransmitterPanel stopTest={stopTest} testSignal={testSignal} transmitSignal={() => {}} />
         </div>
       </div>
     </div>
