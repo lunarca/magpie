@@ -7,9 +7,8 @@ type Props = {
 
 const IndexPage: Component<Props> = (props) => {
   return (
-    <div class="flex justify-center items-center h-screen">
-
-      <div class="w-fit">
+    <div class="grid align-center justify-center w-full ">
+      <div class="h-fit">
         <RxTxSelectorPanel />
       </div>
     </div>
