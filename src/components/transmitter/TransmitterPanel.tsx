@@ -9,7 +9,7 @@ type Props = {
 
 const TransmitterPanel: Component<Props> = (props) => {
   return (
-    <div class="h-[464px] w-96 m-2">
+    <div class="h-full">
       <Panel title="Transmitter">
         <Button color="primary" onClick={props.testSignal}>Test Signal</Button>
 

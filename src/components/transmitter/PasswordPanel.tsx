@@ -13,7 +13,7 @@ type Props = {
 
 const PasswordPanel: Component<Props> = (props) => {
   return (
-    <div class="h-[128px] w-96 m-2">
+    <div class="h-full">
       <Panel title="Password Options">
         <div class="flex flex-col">
           <TerminalCheckboxInput label="Use Password?" checked={props.usePassword} handleChange={props.updateUsePassword}/>

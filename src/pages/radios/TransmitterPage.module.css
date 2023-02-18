@@ -1,0 +1,28 @@
+.txPageGrid {
+  grid-template-areas: 
+    "message encoding tx"
+    "message options tx"
+    "password options tx";
+
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.areaMessage {
+  grid-area: message;
+}
+
+.areaPassword {
+  grid-area: password;
+}
+
+.areaEncoding {
+  grid-area: encoding;
+}
+
+.areaOptions {
+  grid-area: options;
+}
+
+.areaTx {
+  grid-area: tx;
+}

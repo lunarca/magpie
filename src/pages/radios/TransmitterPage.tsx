@@ -8,6 +8,7 @@ import TransmitterPanel from '../../components/transmitter/TransmitterPanel';
 import { noteToSignalMap, scheduleMockingbirdSignal, playSignal, scheduleNumbers } from '../../libs/audio';
 import { messageToNumbers, numbersToMessage } from '../../libs/messageUtils';
 import { getDeSampler } from '../../libs/samplers/deSampler';
+import styles from "./TransmitterPage.module.css"
 
 type Props = {
 
@@ -45,28 +46,33 @@ const TransmitterPage: Component<Props> = (props) => {
   }
 
   return (
-    <div class="w-full h-full flex justify-center">
+    <div class="flex justify-center items-center h-full">
 
-      <div class="flex flex-row">
-        <div class="flex flex-col">
+      <div class={`grid ${styles.txPageGrid} gap-4 justify-center items-center w-[75vw]`}>
+
+        <div class={`${styles.areaMessage} h-full`}>
           <MessageInput setMessage={setMessage}/>
+        </div>
+
+        <div class={`${styles.areaPassword} h-full`}>
           <PasswordPanel password={password()} updatePassword={setPassword}
             usePassword={usePassword()} updateUsePassword={setUsePassword}/>
         </div>
-        <div class="flex flex-col">
+        
+        <div class={`${styles.areaEncoding} h-full`}>
           <EncoderOptionPanel setEncoding={setEncoding} encoding={encoding()} />
+        </div>
+
+        <div class={`${styles.areaOptions} h-full`}>
           <MessageOptionsPanel updateMessageOptions={setMessageOptions} messageOptions={messageOptions()}/>
         </div>
 
-        <div class="flex flex-col">
-          {/* TODO */}
+        <div class={`${styles.areaTx} h-full`}>
           <TransmitterPanel testSignal={testSignal} transmitSignal={() => {}} />
         </div>
-        
-
       </div>
     </div>
-
+          
   )
 }
 
