@@ -12,11 +12,15 @@ const TransmitterPanel: Component<Props> = (props) => {
   return (
     <div class="h-full">
       <Panel title="Transmitter">
-        <Button color="primary" onClick={props.testSignal}>Test Signal</Button>
+        <div class="flex flex-row justify-between">
+          <Button color="primary" onClick={props.testSignal}>Test Signal</Button>
+          <Button color="secondary" onClick={props.stopTest}>Stop Audio</Button>
+        </div>
+        
+        <div class="w-full flex">
+          <Button color="RED" flexGrow onClick={props.transmitSignal}>Transmit Signal</Button>
+        </div>
 
-        <Button color="RED" onClick={props.transmitSignal}>Transmit Signal</Button>
-
-        <Button color="secondary" onClick={props.stopTest}>Stop Audio</Button>
       </Panel>
     </div>
   )
