@@ -45,26 +45,26 @@ const TransmitterPage: Component<Props> = (props) => {
   }
 
   return (
-    <div class="flex items-center justify-center h-screen">
+    <div class="w-full h-full flex justify-center">
 
-    <div class="flex flex-row">
-      <div class="flex flex-col">
-        <MessageInput setMessage={setMessage}/>
-        <PasswordPanel password={password()} updatePassword={setPassword}
-          usePassword={usePassword()} updateUsePassword={setUsePassword}/>
-      </div>
-      <div class="flex flex-col">
-        <EncoderOptionPanel setEncoding={setEncoding} encoding={encoding()} />
-        <MessageOptionsPanel updateMessageOptions={setMessageOptions} messageOptions={messageOptions()}/>
-      </div>
+      <div class="flex flex-row">
+        <div class="flex flex-col">
+          <MessageInput setMessage={setMessage}/>
+          <PasswordPanel password={password()} updatePassword={setPassword}
+            usePassword={usePassword()} updateUsePassword={setUsePassword}/>
+        </div>
+        <div class="flex flex-col">
+          <EncoderOptionPanel setEncoding={setEncoding} encoding={encoding()} />
+          <MessageOptionsPanel updateMessageOptions={setMessageOptions} messageOptions={messageOptions()}/>
+        </div>
 
-      <div class="flex flex-col">
-        {/* TODO */}
-        <TransmitterPanel testSignal={testSignal} transmitSignal={() => {}} />
-      </div>
-      
+        <div class="flex flex-col">
+          {/* TODO */}
+          <TransmitterPanel testSignal={testSignal} transmitSignal={() => {}} />
+        </div>
+        
 
-    </div>
+      </div>
     </div>
 
   )
