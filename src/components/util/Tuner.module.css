@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'DSEG7Classic-Regular';
+  src: url('../../assets/fonts/DSEG7Classic-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'DSEG7Classic-Bold';
+  src: url('../../assets/fonts/DSEG7Classic-Bold.ttf') format('truetype');
+}
+
+.tunerFace {
+  font-family: 'DSEG7Classic-Bold';
+}

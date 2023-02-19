@@ -2,8 +2,9 @@ import { children, Component } from 'solid-js';
 
 type Props = {
   children: any,
-  onClick?: () => void
-  color?: "primary" | "secondary" | "RED"
+  onClick?: () => void,
+  color?: "primary" | "secondary" | "RED",
+  flexGrow?: boolean,
 }
 const Button: Component<Props> = (props) => {
   const c = children(() => props.children)
@@ -11,7 +12,7 @@ const Button: Component<Props> = (props) => {
 
   return (
     <button 
-      class={`${colorClass} m-2 p-2  text-center ${props.color === "RED" ? "font-extrabold text-black shadow-lg" : "text-slate-900 font-bold shadow-sm"} `}
+      class={`${colorClass} box-content m-2 p-2 ${props.flexGrow && "flex-grow"} text-center ${props.color === "RED" ? "font-extrabold text-black shadow-lg" : "text-slate-900 font-bold shadow-sm"} `}
       onClick={props.onClick}
     >{c()}</button>
   )

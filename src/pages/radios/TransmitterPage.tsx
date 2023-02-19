@@ -8,6 +8,7 @@ import TransmitterPanel from '../../components/transmitter/TransmitterPanel';
 import { noteToSignalMap, scheduleMockingbirdSignal, playSignal, scheduleNumbers } from '../../libs/audio';
 import { messageToNumbers, numbersToMessage } from '../../libs/messageUtils';
 import { getDeSampler } from '../../libs/samplers/deSampler';
+import styles from "./TransmitterPage.module.css"
 
 type Props = {
 
@@ -43,30 +44,38 @@ const TransmitterPage: Component<Props> = (props) => {
       playSignal(deSampler(), numbers, encoding())
     })
   }
+  const stopTest = () => {
+    Tone.Transport.stop()
+  }
 
   return (
-    <div class="flex items-center justify-center h-screen">
+    <div class="flex justify-center items-center h-full">
 
-    <div class="flex flex-row">
-      <div class="flex flex-col">
-        <MessageInput setMessage={setMessage}/>
-        <PasswordPanel password={password()} updatePassword={setPassword}
-          usePassword={usePassword()} updateUsePassword={setUsePassword}/>
-      </div>
-      <div class="flex flex-col">
-        <EncoderOptionPanel setEncoding={setEncoding} encoding={encoding()} />
-        <MessageOptionsPanel updateMessageOptions={setMessageOptions} messageOptions={messageOptions()}/>
-      </div>
+      <div class={`grid ${styles.txPageGrid} gap-4 justify-center items-center w-[75vw]`}>
 
-      <div class="flex flex-col">
-        {/* TODO */}
-        <TransmitterPanel testSignal={testSignal} transmitSignal={() => {}} />
-      </div>
-      
+        <div class={`${styles.areaMessage} h-full`}>
+          <MessageInput setMessage={setMessage}/>
+        </div>
 
+        <div class={`${styles.areaPassword} h-full`}>
+          <PasswordPanel password={password()} updatePassword={setPassword}
+            usePassword={usePassword()} updateUsePassword={setUsePassword}/>
+        </div>
+        
+        <div class={`${styles.areaEncoding} h-full`}>
+          <EncoderOptionPanel setEncoding={setEncoding} encoding={encoding()} />
+        </div>
+
+        <div class={`${styles.areaOptions} h-full`}>
+          <MessageOptionsPanel updateMessageOptions={setMessageOptions} messageOptions={messageOptions()}/>
+        </div>
+
+        <div class={`${styles.areaTx} h-full`}>
+          <TransmitterPanel stopTest={stopTest} testSignal={testSignal} transmitSignal={() => {}} />
+        </div>
+      </div>
     </div>
-    </div>
-
+          
   )
 }
 

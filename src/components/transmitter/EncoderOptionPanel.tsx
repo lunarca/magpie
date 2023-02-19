@@ -11,7 +11,7 @@ type Props = {
 
 const EncoderOptionPanel: Component<Props> = (props) => {
   return (
-    <div class="w-80 h-44 m-2">
+    <div class="h-full">
 
       <Panel title="Encoding Options">
         <fieldset class="flex flex-col">

@@ -19,10 +19,8 @@ render(() => (
   <FirebaseProvider config={firebaseConfig}>
     <Router>
 
-      <div class="bg-stone-900 absolute h-screen w-screen scanlines">
-        <App />
+      <App />
 
-      </div>
     </Router>
 
   </FirebaseProvider>
