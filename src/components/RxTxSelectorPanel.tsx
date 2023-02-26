@@ -19,7 +19,7 @@ const RxTxSelectorPanel: Component<Props> = (props) => {
       <div class="grid justify-center content-center w-full h-full">
         <div>
           <Button color="secondary" onClick={selectRadio("rx")}>Receiver (RX)</Button>
-          <Button onClick={selectRadio("tx")}>Transmitter (TX)</Button>
+          <Button color="primary" onClick={selectRadio("tx")}>Transmitter (TX)</Button>
         </div>
       </div>
     </Panel>
